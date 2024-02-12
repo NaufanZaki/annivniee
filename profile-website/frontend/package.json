@@ -18,6 +18,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
+    "sweetalert2": "^11.10.5",
     "swiper": "^11.0.6"
   }
 }
