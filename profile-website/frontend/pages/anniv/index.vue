@@ -1,5 +1,6 @@
 <template>
-  <div class="w-full bg-[#252429]">
+ <div class="w-full" style="background: linear-gradient(45deg, #ed1ef1, #df1458);">
+ 
     <div id="konten">
       <div class="foto">
         <div class="image">
@@ -26,39 +27,60 @@
         >
           <swiper-slide v-for="(budiItem, index) in budi" :key="index">
             <div class="mx-40 flex justify-center">
-              <img
-                :src="budiItem.image"
-                alt="Anniv"
-                width="250px"
-                height="auto"
-              />
+              <div class="image-container" @mouseover="showDescription(index)" @mouseout="hideDescription(index)">
+                <img
+                  :src="budiItem.image"
+                  alt="Anniv"
+                  width="450px"
+                  height="auto"
+                  class="image-item"
+                />
+                <div class="image-description">{{ budiItem.description }}</div>
+              </div>
             </div>
           </swiper-slide>
         </swiper>
       </section>
-<!-- Tombol WhatsApp -->
-<div id="buttonWa" class="cursor-pointer">
+    </div>
+
+    <!-- Tombol WhatsApp -->
+    <div id="buttonWa" class="cursor-pointer">
       <a class="button whatsapp" @click="bukaWa">
         <i class="icon whatsapp"></i>
         Kirim
       </a>
     </div>
-  </div>
-      <!-- New Container Section -->
-      <section class="zigzag-section">
-        <picture-container
-          v-for="(item, index) in pictureContainers"
-          :key="index"
-          :image="item.image"
-          :title="item.title"
-          :description="item.description"
-        />
-      </section>
-
+   <!-- Konten Timeline -->
+<div class="timeline-container">
+  <div class="timeline-item text-right">
+    <img src="/foto/foto1.png" alt="Event 1" class="timeline-image">
+    <div class="timeline-content">
+      <p class="date">September maybee</p>
+      <p class="event">okee dah mulai deket hehehehe</p>
     </div>
+  </div>
 
-    
+  <div class="timeline-item text-left">
+    <img src="/foto/foto1.png" alt="Event 1" class="timeline-image">
+    <div class="timeline-content">
+      <p class="date">September maybee</p>
+      <p class="event">okee dah mulai deket hehehehe</p>
+    </div>
+  </div>
+
+  <div class="timeline-item text-right">
+    <img src="/foto/foto1.png" alt="Event 1" class="timeline-image">
+    <div class="timeline-content">
+      <p class="date">September maybee</p>
+      <p class="event">okee dah mulai deket hehehehe</p>
+    </div>
+  </div>
+</div>
+
+</div>
 </template>
+
+
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -67,7 +89,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import Swal from "sweetalert2";
-import PictureContainer from "@/components/PictureContainer.vue";
 
 const swals = Swal.mixin({
   cancelButtonColor: "#909090",
@@ -80,49 +101,20 @@ export default {
     return {
       activeIndex: 0,
       budi: [
-        { id: 1, image: "/foto/foto1.png" },
-        { id: 2, image: "/foto/foto2.jpg" },
-        { id: 3, image: "/foto/foto4.jpg" },
-        { id: 4, image: "/foto/foto5.jpg" },
-        { id: 5, image: "/foto/foto6.jpg" },
-        { id: 6, image: "/foto/foto7.jpg" },
+        { id: 1, image: "/foto/foto1.png", description: "Kelas Pak Ediii" },
+        { id: 2, image: "/foto/foto2.jpg", description: "Surprise ultahhh wowoowwow" },
+        { id: 3, image: "/foto/foto4.jpg", description: "Tepar Gerigii ekkk" },
+        { id: 4, image: "/foto/foto5.jpg", description: "Satee GM yummyy" },
+        { id: 5, image: "/foto/foto6.jpg", description: "Baru baikan abis berantem xixiixi" },
+        { id: 6, image: "/foto/foto7.jpg", description: "Punten tehh gojekkk" },
       ],
       finish: "kata-kata anniversary tulis sendiri yaak wkwk",
       a: 0,
-      pictureContainers: [
-        {
-          image: "/foto/foto1.png",
-          title: "Dramatic Moment 1",
-          description: "A captivating story about this dramatic moment...",
-        },
-        {
-          image: "/foto/foto2.jpg",
-          title: "Dramatic Moment 2",
-          description: "Another intriguing story behind this picture...",
-        },
-        {
-          image: "/foto/foto2.jpg",
-          title: "Dramatic Moment 2",
-          description: "Another intriguing story behind this picture...",
-        },
-        {
-          image: "/foto/foto2.jpg",
-          title: "Dramatic Moment 2",
-          description: "Another intriguing story behind this picture...",
-        },
-        {
-          image: "/foto/foto2.jpg",
-          title: "Dramatic Moment 2",
-          description: "Another intriguing story behind this picture...",
-        },
-        // Add more pictureContainers as needed
-      ],
     };
   },
   components: {
     Swiper,
     SwiperSlide,
-    PictureContainer,
   },
   setup() {
     return {
@@ -190,6 +182,14 @@ export default {
     bukaWa() {
       window.location =
         "https://api.whatsapp.com/send?phone=6281214586283&text=ini button wa dari web testing";
+    },
+    showDescription(index) {
+      const description = document.querySelectorAll('.image-description')[index];
+      description.style.opacity = '1';
+    },
+    hideDescription(index) {
+      const description = document.querySelectorAll('.image-description')[index];
+      description.style.opacity = '0';
     },
   },
 };
@@ -292,6 +292,8 @@ a {
   position: relative;
   transition: all 3s ease;
   opacity: 0;
+  
+
 }
 
 @keyframes halo {
@@ -317,20 +319,70 @@ section {
   justify-content: center;
 }
 
-.zigzag-section {
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item {
+  border-radius: 20%;
+  transition: all 0.3s ease;
+  box-shadow: #000000;
+}
+.image-item:hover {
+  transform: scale(1.1);
+}
+.image-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(37, 36, 41, 0.8);
+  color: #fff;
+  padding: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  text-align: center;
+}
+
+.image-container:hover .image-description {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.timeline-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  margin: 100px;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.zigzag-section picture-container {
-  margin: 20px;
+.timeline-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  width: 300px; 
   text-align: center;
-  order: 1;
 }
 
-.zigzag-section picture-container:nth-child(even) {
-  order: 2;
+.timeline-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.timeline-content {
+  font-size: 14px;
+}
+
+.date, .event {
+  margin: 5px 0;
 }
 
 </style>
