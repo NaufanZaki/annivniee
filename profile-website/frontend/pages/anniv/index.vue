@@ -3,13 +3,11 @@
     <div id="konten">
       <div class="foto">
         <div class="image">
-            <p class="text-[56px] cursor-pointer" @click="klikfoto">
-                🤍
-            </p>
+          <p class="text-[56px] cursor-pointer" @click="klikfoto">
+            🤍
+          </p>
         </div>
-        <span style="font-weight: 700; font-size: 16px" id="sp1">
-          
-        </span>
+        <span style="font-weight: 700; font-size: 16px" id="sp1"></span>
         <div id="sp2" style="display: none">
           <span style="font-weight: 700; font-size: 16px" id="finish"></span>
         </div>
@@ -18,53 +16,59 @@
       <br>
       <br>
       <section>
-          <swiper
-            :cssMode="true"
-            :mousewheel="true"
-            :keyboard="true"
-            :modules="modules"
-            class="flex mx-40 mt-96"
-          >
-            <swiper-slide v-for="(budiItem, index) in budi" :key="index">
-              <div class="mx-40 flex justify-center">
-                <img
-                  :src="budiItem.image"
-                  alt="Anniv"
-                  width="250px"
-                  height="auto"
-                />
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-                <div class="flex justify-center">
-                    <p class="text-white text-[32px]">klik love di atas dong 💕</p>
-                </div>
-            </swiper-slide>
-          </swiper>
+        <swiper
+          :cssMode="true"
+          :mousewheel="true"
+          :keyboard="true"
+          :modules="modules"
+          class="flex mx-40 mt-96"
+          :slides-per-view="3" 
+        >
+          <swiper-slide v-for="(budiItem, index) in budi" :key="index">
+            <div class="mx-40 flex justify-center">
+              <img
+                :src="budiItem.image"
+                alt="Anniv"
+                width="250px"
+                height="auto"
+              />
+            </div>
+          </swiper-slide>
+        </swiper>
       </section>
-    </div>
-
-    <!-- Tombol WhatsApp -->
-    <div id="buttonWa" class="cursor-pointer">
+<!-- Tombol WhatsApp -->
+<div id="buttonWa" class="cursor-pointer">
       <a class="button whatsapp" @click="bukaWa">
         <i class="icon whatsapp"></i>
         Kirim
       </a>
     </div>
   </div>
+      <!-- New Container Section -->
+      <section class="zigzag-section">
+        <picture-container
+          v-for="(item, index) in pictureContainers"
+          :key="index"
+          :image="item.image"
+          :title="item.title"
+          :description="item.description"
+        />
+      </section>
+
+    </div>
+
+    
 </template>
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
-
 import "swiper/css";
-
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 import { Pagination, Mousewheel, Keyboard } from "swiper/modules";
-
 import Swal from "sweetalert2";
+import PictureContainer from "@/components/PictureContainer.vue";
+
 const swals = Swal.mixin({
   cancelButtonColor: "#909090",
   confirmButtonColor: "#00B487",
@@ -76,42 +80,49 @@ export default {
     return {
       activeIndex: 0,
       budi: [
-        {
-          id: 1,
-          image: "/foto/foto1.png",
-        },
-        {
-          id: 2,
-          image: "/foto/foto2.jpg",
-        },
-        {
-          id: 3,
-          image: "/foto/foto4.jpg",
-        },
-        {
-          id: 4,
-          image: "/foto/foto5.jpg",
-        },
-        {
-          id: 5,
-          image: "/foto/foto6.jpg",
-        },
-        {
-          id: 6,
-          image: "/foto/foto7.jpg",
-        },
-        // {
-        //   id: 7,
-        //   image: "/foto/foto3.png",
-        // }
+        { id: 1, image: "/foto/foto1.png" },
+        { id: 2, image: "/foto/foto2.jpg" },
+        { id: 3, image: "/foto/foto4.jpg" },
+        { id: 4, image: "/foto/foto5.jpg" },
+        { id: 5, image: "/foto/foto6.jpg" },
+        { id: 6, image: "/foto/foto7.jpg" },
       ],
       finish: "kata-kata anniversary tulis sendiri yaak wkwk",
       a: 0,
+      pictureContainers: [
+        {
+          image: "/foto/foto1.png",
+          title: "Dramatic Moment 1",
+          description: "A captivating story about this dramatic moment...",
+        },
+        {
+          image: "/foto/foto2.jpg",
+          title: "Dramatic Moment 2",
+          description: "Another intriguing story behind this picture...",
+        },
+        {
+          image: "/foto/foto2.jpg",
+          title: "Dramatic Moment 2",
+          description: "Another intriguing story behind this picture...",
+        },
+        {
+          image: "/foto/foto2.jpg",
+          title: "Dramatic Moment 2",
+          description: "Another intriguing story behind this picture...",
+        },
+        {
+          image: "/foto/foto2.jpg",
+          title: "Dramatic Moment 2",
+          description: "Another intriguing story behind this picture...",
+        },
+        // Add more pictureContainers as needed
+      ],
     };
   },
   components: {
     Swiper,
     SwiperSlide,
+    PictureContainer,
   },
   setup() {
     return {
@@ -298,6 +309,28 @@ a {
     left: -24px;
     top: 0px;
   }
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.zigzag-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.zigzag-section picture-container {
+  margin: 20px;
+  text-align: center;
+  order: 1;
+}
+
+.zigzag-section picture-container:nth-child(even) {
+  order: 2;
 }
 
 </style>
