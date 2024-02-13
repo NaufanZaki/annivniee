@@ -1,12 +1,12 @@
 <template>
- <div class="w-full" style="background: linear-gradient(45deg, #ed1ef1, #df1458);">
- 
+  <div
+    class="w-full overflow-x-hidden"
+    style="background: linear-gradient(45deg, #ed1ef1, #df1458)"
+  >
     <div id="konten">
       <div class="foto">
         <div class="image">
-          <p class="text-[56px] cursor-pointer" @click="klikfoto">
-            🤍
-          </p>
+          <p class="text-[56px] cursor-pointer" @click="klikfoto">🤍</p>
         </div>
         <span style="font-weight: 700; font-size: 16px" id="sp1"></span>
         <div id="sp2" style="display: none">
@@ -14,8 +14,8 @@
         </div>
       </div>
 
-      <br>
-      <br>
+      <br />
+      <br />
       <section>
         <swiper
           :cssMode="true"
@@ -23,11 +23,15 @@
           :keyboard="true"
           :modules="modules"
           class="flex mx-40 mt-96"
-          :slides-per-view="3" 
+          :slides-per-view="3"
         >
           <swiper-slide v-for="(budiItem, index) in budi" :key="index">
             <div class="mx-40 flex justify-center">
-              <div class="image-container" @mouseover="showDescription(index)" @mouseout="hideDescription(index)">
+              <div
+                class="image-container"
+                @mouseover="showDescription(index)"
+                @mouseout="hideDescription(index)"
+              >
                 <img
                   :src="budiItem.image"
                   alt="Anniv"
@@ -50,37 +54,36 @@
         Kirim
       </a>
     </div>
-   <!-- Konten Timeline -->
-<div class="timeline-container">
-  <div class="timeline-item text-right">
-    <img src="/foto/foto1.png" alt="Event 1" class="timeline-image">
-    <div class="timeline-content">
-      <p class="date">September maybee</p>
-      <p class="event">okee dah mulai deket hehehehe</p>
+    <!-- Konten Timeline -->
+    <div class="timeline-container">
+      <div class="timeline-item">
+        <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
+        <div class="timeline-content">
+          <p class="date">September maybee</p>
+          <p class="event">okee dah mulai deket hehehehe</p>
+        </div>
+      </div>
+
+      <div class="wrapper-timeline">
+        <div class="timeline-item">
+          <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
+          <div class="timeline-content">
+            <p class="date">September maybee</p>
+            <p class="event">okee dah mulai deket hehehehe</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
+        <div class="timeline-content">
+          <p class="date">September maybee</p>
+          <p class="event">okee dah mulai deket hehehehe</p>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="timeline-item text-left">
-    <img src="/foto/foto1.png" alt="Event 1" class="timeline-image">
-    <div class="timeline-content">
-      <p class="date">September maybee</p>
-      <p class="event">okee dah mulai deket hehehehe</p>
-    </div>
-  </div>
-
-  <div class="timeline-item text-right">
-    <img src="/foto/foto1.png" alt="Event 1" class="timeline-image">
-    <div class="timeline-content">
-      <p class="date">September maybee</p>
-      <p class="event">okee dah mulai deket hehehehe</p>
-    </div>
-  </div>
-</div>
-
-</div>
 </template>
-
-
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -102,10 +105,18 @@ export default {
       activeIndex: 0,
       budi: [
         { id: 1, image: "/foto/foto1.png", description: "Kelas Pak Ediii" },
-        { id: 2, image: "/foto/foto2.jpg", description: "Surprise ultahhh wowoowwow" },
+        {
+          id: 2,
+          image: "/foto/foto2.jpg",
+          description: "Surprise ultahhh wowoowwow",
+        },
         { id: 3, image: "/foto/foto4.jpg", description: "Tepar Gerigii ekkk" },
         { id: 4, image: "/foto/foto5.jpg", description: "Satee GM yummyy" },
-        { id: 5, image: "/foto/foto6.jpg", description: "Baru baikan abis berantem xixiixi" },
+        {
+          id: 5,
+          image: "/foto/foto6.jpg",
+          description: "Baru baikan abis berantem xixiixi",
+        },
         { id: 6, image: "/foto/foto7.jpg", description: "Punten tehh gojekkk" },
       ],
       finish: "kata-kata anniversary tulis sendiri yaak wkwk",
@@ -184,12 +195,14 @@ export default {
         "https://api.whatsapp.com/send?phone=6281214586283&text=ini button wa dari web testing";
     },
     showDescription(index) {
-      const description = document.querySelectorAll('.image-description')[index];
-      description.style.opacity = '1';
+      const description =
+        document.querySelectorAll(".image-description")[index];
+      description.style.opacity = "1";
     },
     hideDescription(index) {
-      const description = document.querySelectorAll('.image-description')[index];
-      description.style.opacity = '0';
+      const description =
+        document.querySelectorAll(".image-description")[index];
+      description.style.opacity = "0";
     },
   },
 };
@@ -288,12 +301,10 @@ a {
 }
 
 #konten {
-    padding-top: 40px;
+  padding-top: 40px;
   position: relative;
   transition: all 3s ease;
   opacity: 0;
-  
-
 }
 
 @keyframes halo {
@@ -318,7 +329,6 @@ section {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 .image-container {
   position: relative;
@@ -352,12 +362,18 @@ section {
   transform: scale(1.1);
 }
 
+.wrapper-timeline {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .timeline-container {
   display: flex;
-  flex-wrap: wrap;
-  margin: 100px;
+  justify-content: center;
+  padding-left: 300px;
+  padding-right: 300px;
   flex-direction: column;
-  align-items: flex-start;
 }
 
 .timeline-item {
@@ -366,7 +382,7 @@ section {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin: 10px;
   padding: 15px;
-  width: 300px; 
+  width: 300px;
   text-align: center;
 }
 
@@ -381,8 +397,8 @@ section {
   font-size: 14px;
 }
 
-.date, .event {
+.date,
+.event {
   margin: 5px 0;
 }
-
 </style>
