@@ -186,80 +186,89 @@
 
     <!-- Quiz Section -->
     <div class="center-container">
-      <div id="quiz" v-if="showQuiz" class="quiz-container mt-8">
-        <transition name="fade" mode="out-in">
-          <div :key="activeIndex" class="card">
-            <h2 class="quiz-title">
-              kuis sikit sikit laahh ez ini mahh xixixii
-            </h2>
-            <div v-if="!quizCompleted" class="quiz-content">
-              <div class="quiz-question">
-                <h3 class="question-text">
-                  {{ questions[activeIndex].question }}
-                </h3>
-                <div class="quiz-options">
-                  <div
-                    v-for="(option, optionIndex) in questions[activeIndex]
-                      .options"
-                    :key="optionIndex"
-                    class="quiz-option"
-                    :class="{
-                      'selected-option':
-                        userAnswers[activeIndex] === optionIndex,
-                    }"
-                    @click="selectOption(activeIndex, optionIndex)"
-                  >
-                    <input
-                      type="radio"
-                      :id="'q' + activeIndex + 'o' + optionIndex"
-                      :name="'q' + activeIndex"
-                      :value="optionIndex"
-                      v-model="userAnswers[activeIndex]"
-                      class="hidden"
-                    />
-                    <label
-                      :for="'q' + activeIndex + 'o' + optionIndex"
-                      class="option-label"
+      <div class="center-container">
+        <div id="quiz" v-if="showQuiz" class="quiz-container mt-8">
+          <transition name="fade" mode="out-in">
+            <div :key="activeIndex" class="card">
+              <h2 class="quiz-title">
+                kuis sikit sikit laahh ez ini mahh xixixii
+              </h2>
+              <div v-if="!quizCompleted" class="quiz-content">
+                <div class="quiz-question">
+                  <h3 class="question-text">
+                    {{ questions[activeIndex].question }}
+                  </h3>
+                  <div class="quiz-options">
+                    <div
+                      v-for="(option, optionIndex) in questions[activeIndex]
+                        .options"
+                      :key="optionIndex"
+                      class="quiz-option"
                     >
-                      {{ option }}
-                    </label>
+                      <div
+                        class="option-box"
+                        :class="{
+                          'selected-option':
+                            userAnswers[activeIndex] === optionIndex,
+                        }"
+                        @click="selectOption(activeIndex, optionIndex)"
+                      >
+                        <input
+                          type="radio"
+                          :id="'q' + activeIndex + 'o' + optionIndex"
+                          :name="'q' + activeIndex"
+                          :value="optionIndex"
+                          v-model="userAnswers[activeIndex]"
+                          class="hidden"
+                        />
+                        <label
+                          :for="'q' + activeIndex + 'o' + optionIndex"
+                          class="option-label"
+                        >
+                          {{ option }}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="quiz-nav">
+                    <button
+                      @click="prevQuestion"
+                      :disabled="activeIndex === 0"
+                      class="quiz-nav-button"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      @click="nextQuestion"
+                      :disabled="activeIndex === questions.length - 1"
+                      class="quiz-nav-button"
+                    >
+                      Next
+                    </button>
                   </div>
                 </div>
-                <div class="quiz-nav">
-                  <button
-                    @click="prevQuestion"
-                    :disabled="activeIndex === 0"
-                    class="quiz-nav-button"
-                  >
-                    Previous
-                  </button>
-                  <button
-                    @click="nextQuestion"
-                    :disabled="activeIndex === questions.length - 1"
-                    class="quiz-nav-button"
-                  >
-                    Next
-                  </button>
-                </div>
+                <button @click="submitQuiz" class="quiz-submit-button">
+                  Submit
+                </button>
               </div>
-              <button @click="submitQuiz" class="quiz-submit-button">
-                Submit
-              </button>
+              <div v-else class="quiz-result">
+                <h3 class="result-title">wihh remed gaa yaahh</h3>
+                <p class="result-score">
+                  score bubub: {{ calculateScore() }}/{{ questions.length }}
+                </p>
+              </div>
             </div>
-            <div v-else class="quiz-result">
-              <h3 class="result-title">wihh remed gaa yaahh</h3>
-              <p class="result-score">
-                score bubub: {{ calculateScore() }}/{{ questions.length }}
-              </p>
-            </div>
-          </div>
-        </transition>
+          </transition>
+        </div>
       </div>
     </div>
-    <br>
-  <br>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
-  
 </template>
 
 <script>
@@ -508,7 +517,7 @@ html {
 
 body {
   transition: all 0.3s ease;
-  font-family: "Poppins", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   padding: 25px;
 }
 
@@ -672,7 +681,7 @@ section {
   justify-content: flex-end;
 }
 .wrapper-timeline:hover {
- animation: bounce 1s;
+  animation: bounce 1s;
 }
 
 .glass-effect-section {
@@ -777,12 +786,6 @@ section {
 
 .quiz-option {
   margin-bottom: 10px;
-}
-.selected-option {
-  background-color: #99b863; /* Light blue background for selected option */
-}
-.quiz-option:hover {
-  background-color: #99b86347; /* Hover background color */
 }
 .card {
   background-color: #fff;
@@ -903,6 +906,32 @@ section {
 
 .quiz-result {
   margin-top: 1.5rem;
+}
+
+.option-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 100%; /* Set width to 100% */
+  box-sizing: border-box; /* Include padding and border in the box's total width */
+  transition: background-color 0.3s, transform 0.5s, border-radius 0.3s;
+  border-radius: 10px;
+}
+.option-box:hover {
+  background-color: #c1b1c8;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.selected-option {
+  background-color: #546f2e;
+  color: #fff;
+  border-radius: 20px;
+}
+.selected-option:hover {
+  background-color: #6a8b3b;
+  transition: background-color 0.3s, transform 0.5s, border-radius 0.3s;
 }
 
 .result-title {
