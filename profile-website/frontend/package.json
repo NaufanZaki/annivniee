@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "nuxt-aos": "^1.2.4",
     "sweetalert2": "^11.10.5",
     "swiper": "^11.0.6"
   }

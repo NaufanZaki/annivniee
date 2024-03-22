@@ -10,12 +10,12 @@
     />
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center text-white">
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">siomay</h1>
+        <h1 class="text-6xl md:text-9xl lg:text-10xl font-bold mb-4">siomay</h1>
         <p class="text-lg md:text-xl lg:text-2xl mb-8">anjay dah setaun</p>
         <br />
         <br />
         <a href="#" class="start-quiz-button" @click="scrollToSection"
-          >Explore More</a
+          >Lanjuut</a
         >
       </div>
     </div>
@@ -25,17 +25,39 @@
     <div id="konten">
       <div class="foto">
         <div class="image">
-          <p class="text-[56px] cursor-pointer" @click="klikfoto">🤍</p>
+          <p class="text-6xl cursor-pointer" @click="klikfoto">🤍</p>
         </div>
         <span style="font-weight: 700; font-size: 16px" id="sp1"></span>
         <div id="sp2" style="display: none">
           <span style="font-weight: 700; font-size: 16px" id="finish"></span>
         </div>
       </div>
+      <!-- Tombol WhatsApp -->
+      <div id="buttonWa" class="cursor-pointer">
+        <a class="button whatsapp" @click="bukaWa">
+          <i class="icon whatsapp"></i>
+          Kirim
+        </a>
+      </div>
+
       <br />
       <br />
-      <section class="swiper-section glass-effect-section">
-        <h1>Places we've been</h1>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <section
+        class="swiper-section glass-effect-section"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
+      >
+      <h1 class="Judul_Section">Places we've been</h1>
         <swiper
           :cssMode="true"
           :mousewheel="true"
@@ -65,14 +87,6 @@
         </swiper>
       </section>
     </div>
-
-    <!-- Tombol WhatsApp -->
-    <div id="buttonWa" class="cursor-pointer">
-      <a class="button whatsapp" @click="bukaWa">
-        <i class="icon whatsapp"></i>
-        Kirim
-      </a>
-    </div>
   </div>
   <div class="second-section">
     <!-- waves transition -->
@@ -84,8 +98,38 @@
       ></path>
     </svg>
     <!-- Konten Timeline -->
+    
     <div class="timeline-container">
-      <div class="timeline-item">
+      <h1 class="Judul_Timeline">Timeline Recapzz</h1>
+      <div
+        class="timeline-item"
+        data-aos="fade-right"
+        data-aos-easing="ease-in-sine"
+        data-aos-anchor-placement="left-left"
+      >
+        <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
+        <div class="timeline-content">
+          <p class="date">September maybee</p>
+          <p class="event">okee dah mulai deket hehehehe</p>
+          <div v-if="activeEvent === index" class="additional-info">
+            <!-- Updated: Place additional content directly in HTML -->
+            <p>Location: Monas</p>
+            <p>Description: Description of the event...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper-timeline">
+        <div class="timeline-item" data-aos="fade-left">
+          <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
+          <div class="timeline-content">
+            <p class="date">September maybee</p>
+            <p class="event">okee dah mulai deket hehehehe</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-right">
         <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
         <div class="timeline-content">
           <p class="date">September maybee</p>
@@ -93,7 +137,7 @@
         </div>
       </div>
 
-      <div class="wrapper-timeline">
+      <div class="wrapper-timeline" data-aos="fade-left">
         <div class="timeline-item">
           <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
           <div class="timeline-content">
@@ -103,7 +147,7 @@
         </div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-aos="fade-right">
         <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
         <div class="timeline-content">
           <p class="date">September maybee</p>
@@ -111,7 +155,7 @@
         </div>
       </div>
 
-      <div class="wrapper-timeline">
+      <div class="wrapper-timeline" data-aos="fade-left">
         <div class="timeline-item">
           <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
           <div class="timeline-content">
@@ -121,7 +165,7 @@
         </div>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-aos="fade-right">
         <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
         <div class="timeline-content">
           <p class="date">September maybee</p>
@@ -129,25 +173,7 @@
         </div>
       </div>
 
-      <div class="wrapper-timeline">
-        <div class="timeline-item">
-          <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
-          <div class="timeline-content">
-            <p class="date">September maybee</p>
-            <p class="event">okee dah mulai deket hehehehe</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
-        <div class="timeline-content">
-          <p class="date">September maybee</p>
-          <p class="event">okee dah mulai deket hehehehe</p>
-        </div>
-      </div>
-
-      <div class="wrapper-timeline">
+      <div class="wrapper-timeline" data-aos="fade-left">
         <div class="timeline-item">
           <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
           <div class="timeline-content">
@@ -172,7 +198,6 @@
         style="position: absolute"
         frameborder="0"
         class="giphy-embed"
-        allowfullscreen
       ></iframe>
     </div>
 
@@ -254,7 +279,7 @@
               <div v-else class="quiz-result">
                 <h3 class="result-title">wihh remed gaa yaahh</h3>
                 <p class="result-score">
-                  score bubub: {{ calculateScore() }}/{{ questions.length }}
+                  score anda: {{ calculateScore() }}/{{ questions.length }}
                 </p>
               </div>
             </div>
@@ -288,6 +313,7 @@ const swals = Swal.mixin({
 export default {
   data() {
     return {
+      activeEvent: null,
       quizCompleted: false,
       slideDirection: "",
       activeIndex: 0,
@@ -300,14 +326,14 @@ export default {
         },
         { id: 3, image: "/foto/foto4.jpg", description: "Tepar Gerigii ekkk" },
         { id: 4, image: "/foto/foto5.jpg", description: "Satee GM yummyy" },
-        {
-          id: 5,
-          image: "/foto/foto6.jpg",
-          description: "Baru baikan abis berantem xixiixi",
-        },
-        { id: 6, image: "/foto/foto7.jpg", description: "Punten tehh gojekkk" },
+        // {
+        //   id: 5,
+        //   image: "/foto/foto6.jpg",
+        //   description: "Baru baikan abis berantem xixiixi",
+        // },
+        // { id: 6, image: "/foto/foto7.jpg", description: "Punten tehh gojekkk" },
       ],
-      finish: "kata-kata anniversary tulis sendiri yaak wkwk",
+      finish: "blablablablabla",
       a: 0,
       showQuiz: false,
       quizCompleted: false,
@@ -371,6 +397,10 @@ export default {
     this.mulai();
   },
   methods: {
+    toggleEventDetails(index) {
+      // Toggle the active event index on click
+      this.activeEvent = this.activeEvent === index ? null : index;
+    },
     selectOption(questionIndex, optionIndex) {
       // Function to handle the selection of quiz options
       this.$set(this.userAnswers, questionIndex, optionIndex);
@@ -428,14 +458,14 @@ export default {
         confirmButtonText: "gass",
         showCancelButton: false,
       });
-      let zakk = "Zakii";
-      let ara = "Mutiara";
+      let zakk = "aku";
+      let ara = "surprise";
       if (zakk) {
         window.zakk = zakk;
         this.finish = this.finish;
         if (ara != zakk) {
           document.getElementById("sp1").innerHTML =
-            "PPPP Dari " + zakk + ", buat " + ara + "💕";
+            "Pencet " + zakk + ", buat " + ara + "💕";
           window.ara = ara;
           await swals.fire({
             title: `Hope you like it &#x1F60B;`,
@@ -516,8 +546,8 @@ html {
 }
 
 body {
-  transition: all 0.3s ease;
-  font-family: "Josefin Sans", sans-serif;
+  transition: all 0.5s ease;
+  font-family: "Madimi One", sans-serif;
   padding: 25px;
 }
 
@@ -526,16 +556,46 @@ a {
 }
 
 .first-section {
-  background: linear-gradient(
-    to right,
-    hsl(281, 20%, 41%),
-    #70547d
-  ); /* Set your desired background style */
+  background: linear-gradient(to right, hsl(281, 20%, 41%), #70547d);
+  font-family: "Madimi One", sans-serif; /* Set your desired background style */
   /* Add other styling for the first section */
 }
 
+/* Common styling for Judul_Section and Judul_Timeline */
+.Judul_Section, .Judul_Timeline {
+  font-size: 2.0rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  color: #fdfdfd;
+  text-align: center; /* Center the text */
+  letter-spacing: 1px; /* Adjust letter spacing */
+  line-height: 1.5; /* Set line height for better readability */
+  padding: 0.5rem; /* Add padding for better spacing */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+/* Styling for Judul_Section */
+.Judul_Section {
+  background-color: #9e90fa; /* Add a background color */
+}
+
+/* Styling for Judul_Timeline */
+.Judul_Timeline {
+  background-color: rgb(136, 119, 246); /* Add a background color */
+}
+
+/* Media query for small screens */
+@media only screen and (max-width: 600px) {
+  .Judul_Section, .Judul_Timeline {
+    font-size: 1.8rem; /* Adjust font size for smaller screens */
+  }
+}
+
+
 .second-section {
   background: url("/foto/Background2.svg") center/cover no-repeat;
+  font-family: "Madimi One", sans-serif;
 }
 
 .button:hover {
@@ -652,6 +712,7 @@ section {
   box-shadow: #000000;
   padding-top: 40px; /* Adjust the top padding */
   padding-bottom: 40px; /* Adjust the bottom padding */
+  animation: BounceTerus 5s infinite;
 }
 .image-item:hover {
   transform: scale(1.1);
@@ -668,6 +729,7 @@ section {
   transition: all 0.3s ease;
   transform: scale(1);
   text-align: center;
+  font-family: "Madimi One", sans-serif;
 }
 
 .image-container:hover .image-description {
@@ -714,12 +776,18 @@ section {
 .timeline-item {
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(27, 26, 26, 0.1);
   margin: 10px;
   padding: 15px;
   width: 300px;
   text-align: center;
+  cursor: pointer;
 }
+
+.timeline-item.active {
+  background-color: #f0f0f0; /* Change the background color for active items */
+}
+
 .timeline-item:hover {
   animation: bounce 1s;
 }
@@ -735,8 +803,17 @@ section {
   font-size: 14px;
 }
 
-.date,
+.additional-info {
+  /* Additional styles for the details section */
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+.date {
+  font-size: large;
+}
 .event {
+  font-size: medium;
   margin: 5px 0;
 }
 
@@ -763,6 +840,25 @@ section {
   60% {
     transform: translateY(-10px);
   }
+}
+@keyframes BounceTerus {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+.element {
+  animation: subtleBounce 1s infinite;
 }
 
 .bounce-animation {
@@ -819,10 +915,19 @@ section {
 }
 
 .quiz-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2.0rem;
+  font-weight: bolder;
   margin-bottom: 1rem;
+  color: #fdfdfd;
+  text-align: center; /* Center the text */
+  letter-spacing: 1px; /* Adjust letter spacing */
+  line-height: 1.5; /* Set line height for better readability */
+  padding: 0.5rem; /* Add padding for better spacing */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  background-color:#9e90fa; /* Add a background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
+
 
 .quiz-content {
   margin-top: 1.5rem;
@@ -831,6 +936,12 @@ section {
 .question-text {
   font-size: 1.2rem;
   font-weight: bold;
+  line-height: 1.5; /* Set line height for better readability */
+  padding: 0.5rem; /* Add padding for better spacing */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  background-color:#9e90fa; /* Add a background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  color: #fdfdfd;
 }
 
 .quiz-options {
@@ -935,7 +1046,7 @@ section {
 }
 
 .result-title {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: bold;
 }
 
@@ -966,8 +1077,8 @@ section {
 }
 
 .quiz-nav-button:hover {
-  background-color: #4e3dba; /* Darker shade on hover */
-  transform: scale(1.1); /* Add a slight scale effect on hover */
+  background-color: #4e3dba;
+  transform: scale(1.1);
   border-radius: 20px;
 }
 

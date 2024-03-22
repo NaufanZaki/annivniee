@@ -2,3 +2,14 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@font-face {
+    font-family: 'Madimi One';
+    src: url('~/static/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }  
+
+  body {
+    font-family: 'Madimi One', sans-serif;
+  }
