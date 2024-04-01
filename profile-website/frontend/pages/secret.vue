@@ -1,4 +1,8 @@
 <template>
+    <header class="header">
+      <h1>Zaki</h1>
+      <nuxt-link to="/">Back</nuxt-link>
+    </header>
     <div
       class="relative bg-cover bg-center h-screen flex items-center justify-center"
     >
@@ -10,8 +14,8 @@
       />
       <div class="absolute inset-0 flex items-center justify-center">
         <div class="text-center text-white">
-          <h1 class="text-6xl md:text-9xl lg:text-10xl font-bold mb-4">siomay</h1>
-          <p class="text-lg md:text-xl lg:text-2xl mb-8">anjay dah setaun</p>
+          <h1 class="text-3xl md:text-6xl lg:text-10xl font-bold mb-4">Zaki and Ara's Websiteee</h1>
+          <p class="text-lg md:text-xl lg:text-2xl mb-8 subpixel-antialiased">mauuu setahun nieee</p>
           <br />
           <br />
           <a href="#" class="start-quiz-button" @click="scrollToSection"
@@ -275,6 +279,7 @@
                   <p class="result-score">
                     score anda: {{ calculateScore() }}/{{ questions.length }}
                   </p>
+                  <br>
                 </div>
               </div>
             </transition>
@@ -287,6 +292,12 @@
       <br />
       <br />
       <br />
+      <div class="center-container">
+        <nuxt-link to="eval">
+    <button class="start-quiz-button">Next</button>
+  </nuxt-link>
+      </div>
+      
     </div>
   </template>
   
@@ -979,10 +990,23 @@
     color: white;
     padding: 8px 16px;
     border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, border-radius 0.3s; /* Combined transitions */
+}
+
+.quiz-submit-button:hover {
+    margin-top: 1.5rem;
+    background-color: #41915a;
+    color: white;
+    padding: 8px 16px;
+    border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
-  }
+    transform: scale(1.25); /* Add transform on hover */
+}
+
+
   /* Add this to your existing styles or create a new stylesheet */
   .center-container {
     display: flex;
@@ -1115,5 +1139,14 @@
       opacity: 1;
     }
   }
+
+  .header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
   </style>
   

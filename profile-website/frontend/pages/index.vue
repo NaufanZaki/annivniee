@@ -5,11 +5,13 @@
       <h1>Zaki</h1>
       <button @click="showPopup">Login/Signup</button>
     </header>
-
-    <!-- Hero Section -->
+    <!-- hero section -->
     <section class="hero">
-      <h2>My name is Naufan Zaki Luqmanulhakim</h2>
-      <p>This is a brief introduction about me.</p>
+      <div class="hero-content">
+        <h2>My name is</h2>
+        <h1>Naufan Zaki</h1>
+        <p>This is a brief introduction about me.</p>
+      </div>
     </section>
 
     <!-- About Section -->
@@ -64,20 +66,39 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- contacts section -->
     <section class="contact">
-      <h2>Contact Me</h2>
-      <p>Feel free to reach out to me.</p>
+      <div class="contact-content">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out to me.</p>
+        <div class="social-media">
+          <a
+            href="https://www.instagram.com/naufanzakii?igsh=YzJpc3FyOHhqM2pk"
+            class="social-icon"
+          >
+            <img src="/foto/instagram.svg" alt="Instagram" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/naufan-zaki-luqmanulhakim-0b0810248?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            class="social-icon"
+          >
+            <img src="/foto/linkedin.svg" alt="LinkedIn" />
+          </a>
+          <a href="#" class="social-icon">
+            <img src="/foto/whatsapp.svg" alt="WhatsApp" />
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <p>&copy; 2024 Profile Website</p>
+      <p>&copy; 2024 Naufan Zaki Luqmanulhakim</p>
     </footer>
 
     <!-- Login/Signup Popup -->
-    <div v-if="showLoginPopup" class="popup-background">
-      <div class="popup">
+    <div v-if="showLoginPopup" class="popup-background" @click="closePopup">
+      <div class="popup" style="z-index: 3">
         <h2>Login/Signup</h2>
         <form @submit.prevent="login">
           <div class="form-group">
@@ -119,37 +140,37 @@ export default {
         {
           id: "1",
           title: "Project 1",
-          description: "comming soon",
+          description: "coming soon",
           date: "2024-03-31",
         },
         {
           id: "2",
           title: "Project 2",
-          description: "comming soon",
+          description: "coming soon",
           date: "2024-03-31",
         },
         {
           id: "3",
           title: "Project 3",
-          description: "comming soon",
+          description: "coming soon",
           date: "2024-03-31",
         },
         {
-          id: "1",
-          title: "Project 1",
-          description: "comming soon",
+          id: "4",
+          title: "Project 4",
+          description: "coming soon",
           date: "2024-03-31",
         },
         {
-          id: "2",
-          title: "Project 2",
-          description: "comming soon",
+          id: "5",
+          title: "Project 5",
+          description: "coming soon",
           date: "2024-03-31",
         },
         {
-          id: "3",
-          title: "Project 3",
-          description: "comming soon",
+          id: "6",
+          title: "Project 6",
+          description: "coming soon",
           date: "2024-03-31",
         },
         // Add more projects as needed
@@ -161,6 +182,11 @@ export default {
     };
   },
   methods: {
+    closePopup(event) {
+      if (event.target.classList.contains("popup-background")) {
+        this.showLoginPopup = false;
+      }
+    },
     navigateToProject(projectId) {
       // Navigate to the project page based on the projectId
       this.$router.push({ name: "project", params: { id: projectId } });
@@ -178,7 +204,7 @@ export default {
       // Perform authentication
       if (this.username === "arazaki" && this.password === "sukasushitei") {
         // Redirect to secret page
-        this.$router.push({ name: "secrete" });
+        this.$router.push({ name: "secret" });
       } else {
         this.loginError = "Invalid username or password.";
       }
@@ -208,25 +234,9 @@ h2 {
   align-items: center;
 }
 
-/* Hero Section Styles */
 .hero {
-  background-image: url('/foto/foto2.jpg');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  padding: 20rem 0; /* Adjusted padding to make the hero section taller */
-  text-align: center;
   position: relative;
-}
-
-.hero:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Overlay color */
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 .hero-content {
@@ -234,14 +244,58 @@ h2 {
   z-index: 1;
 }
 
-.hero h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/foto/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(-1px) scale(1.5); /* Adjust scale as needed */
   z-index: 0;
 }
 
+/* Color layer */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25); /* Adjust opacity as needed */
+  z-index: 0;
+}
+
+.hero h1,
+.hero h2,
 .hero p {
-  font-size: 1.5rem;
+  margin-left: 100px;
+  color: #fff; /* Ensure text is visible */
+  line-height: 1;
+}
+
+.hero h1 {
+  font-size: 80px;
+  margin-bottom: 1rem;
+}
+
+.hero h2 {
+  font-size: 48px;
+  margin-bottom: 1rem;
+  font-style: bold;
+}
+
+.hero p {
+  font-size: 24px;
+}
+
+/* Optional: Adjust padding to increase spacing */
+.hero-content {
+  padding: 20rem 0; /* Adjusted padding to make the hero section taller */
 }
 
 /* About, Portfolio, Contact Sections Styles */
@@ -257,6 +311,35 @@ h2 {
   text-align: center;
 }
 
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon {
+  margin: 0 0.5rem;
+}
+
+.social-icon img {
+  width: 40px;
+  height: 40px;
+}
+
 /* Skills Section Styles */
 .skills {
   background-color: #ddd;
@@ -268,6 +351,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .skill {
@@ -296,6 +380,20 @@ h2 {
   left: 0;
 }
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .skill {
+    flex: 0 0 100%; /* Change flex-basis to 100% for full width */
+  }
+  .skill-graph {
+    width: 50%; /* Set width to 100% to fill the container */
+    margin-bottom: 1rem; /* Add some spacing between bars */
+    margin-left:10rem;
+    margin-right:10rem;
+  }
+}
+
+
 /* Footer Styles */
 .footer {
   background-color: #333;
@@ -315,6 +413,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 4;
 }
 
 .popup {
@@ -322,6 +421,7 @@ h2 {
   padding: 2rem;
   border-radius: 5px;
   width: 300px;
+  z-index: 3;
 }
 
 .popup h2 {
@@ -416,6 +516,32 @@ h2 {
 @media (max-width: 768px) {
   .about-content {
     padding: 0 20px; /* Add padding for smaller screens */
+  }
+}
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+  }
+
+  .about-content p {
+    font-size: 1.1rem;
+  }
+
+  .contact-content p {
+    font-size: 1rem;
+  }
+
+  .popup {
+    width: 80%;
   }
 }
 </style>
