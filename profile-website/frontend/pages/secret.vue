@@ -64,7 +64,7 @@
             :slides-per-view="3"
           >
             <swiper-slide v-for="(budiItem, index) in budi" :key="index">
-              <div class="mx-40 flex justify-center">
+              <div class="mx-40 my-40 flex justify-center">
                 <div
                   class="image-container"
                   @mouseover="showDescription(index)"
@@ -327,10 +327,14 @@
           {
             id: 2,
             image: "/foto/foto8.jpg",
-            description: "Surprise ultahhh wowoowwow",
+            description: "Nugas Sisop di Lawson",
           },
           { id: 3, image: "/foto/foto4.jpg", description: "Tepar Gerigii ekkk" },
           { id: 4, image: "/foto/foto5.jpg", description: "Satee GM yummyy" },
+          { id: 5, image: "/foto/foto6.jpg", description: "doux butter aka the best donut everr"},
+          { id: 6, image: "/foto/foto17.jpg", description: "Malang Trippp" },
+          { id: 7, image: "/foto/foto11.jpg", description: "Sushii teiii our favourite"},
+          { id: 8, image: "/foto/foto15-2.jpg", description: "Ramen datee" },
           // {
           //   id: 5,
           //   image: "/foto/foto6.jpg",
@@ -338,7 +342,7 @@
           // },
           // { id: 6, image: "/foto/foto7.jpg", description: "Punten tehh gojekkk" },
         ],
-        finish: "blablablablabla",
+        finish: "",
         a: 0,
         showQuiz: false,
         quizCompleted: false,
@@ -346,7 +350,7 @@
         questions: [
           {
             question: "1. Anniversary kita kapan?",
-            options: ["1 Januari", "6 April", "33 Februari", "69 Desember"],
+            options: ["7 April", "6 April", "5 April", "8 April"],
             correctAnswer: 1,
           },
           {
@@ -712,12 +716,12 @@
   }
   
   .image-item {
-    border-radius: 20%;
+    border-radius: 15%;
     transition: all 0.3s ease;
     box-shadow: #000000;
     padding-top: 40px; /* Adjust the top padding */
     padding-bottom: 40px; /* Adjust the bottom padding */
-    animation: BounceTerus 5s infinite;
+    /* animation: BounceTerus 5s infinite; */
   }
   .image-item:hover {
     transform: scale(1.1);
