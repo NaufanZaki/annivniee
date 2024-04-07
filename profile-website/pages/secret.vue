@@ -29,29 +29,8 @@
     </div>
   </div>
 
-  <div class="first-section">
-    <!-- <div id="konten"> -->
+  <div class="first-section" id="swiper">
     <div>
-      <!-- <div class="foto">
-          <div class="image">
-            <p class="text-6xl cursor-pointer" @click="klikfoto">🤍</p>
-          </div>
-          <span style="font-weight: 700; font-size: 16px" id="sp1"></span>
-          <div id="sp2" style="display: none">
-            <span style="font-weight: 700; font-size: 16px" id="finish"></span>
-          </div>
-        </div> -->
-      <!-- Tombol WhatsApp -->
-      <!-- <div id="buttonWa" class="cursor-pointer">
-          <a class="button whatsapp" @click="bukaWa">
-            <i class="icon whatsapp"></i>
-            Kirim
-          </a>
-        </div> -->
-      <br />
-      <br />
-      <br />
-      <!-- data-aos-anchor-pla  cement="top-center" -->
       <section
         class="swiper-section glass-effect-section"
         data-aos="fade-up"
@@ -127,85 +106,54 @@
     <div
       class="w-full overflow-hidden max-[500px]:flex max-[500px]:flex-col max-[500px]:justify-center max-[500px]:items-center max-[500px]:mx-0"
     >
-      <h1 class="Judul_Timeline">Timeline Recapzz</h1>
+      <h1 class="Judul_Timeline">Our favourite Moments</h1>
       <!-- data-aos-easing="ease-in-sine"
       data-aos-anchor-placement="left-left" -->
       <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
         <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
         <div class="timeline-content">
-          <p class="date">September maybee</p>
+          <p class="date">Date: September maybee</p>
           <p class="event">okee dah mulai deket hehehehe</p>
-          <div v-if="activeEvent === index" class="additional-info">
-            <!-- Updated: Place additional content directly in HTML -->
-            <p>Location: Monas</p>
-            <p>Description: Description of the event...</p>
-          </div>
         </div>
       </div>
 
       <div class="wrapper-timeline min-sm:w-full justify-end flex">
         <div class="timeline-item" data-aos="fade-left" data-aos-delay="500">
-          <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
+          <img src="/foto/foto2.jpg" alt="Event 1" class="timeline-image" />
           <div class="timeline-content">
-            <p class="date">September maybee</p>
-            <p class="event">okee dah mulai deket hehehehe</p>
+            <p class="date">Date: May 2023</p>
+            <p class="event">Disurprise ulang tahuun best birthday everr</p>
           </div>
         </div>
       </div>
 
       <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
-        <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
+        <img src="/foto/foto20.jpg" alt="Event 1" class="timeline-image" />
         <div class="timeline-content">
-          <p class="date">September maybee</p>
-          <p class="event">okee dah mulai deket hehehehe</p>
+          <p class="date">Date: Forever</p>
+          <p class="event">All the foods we eat</p>
         </div>
       </div>
 
       <div class="wrapper-timeline min-sm:w-full justify-end flex" data-aos="fade-left" data-aos-delay="500">
         <div class="timeline-item">
-          <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
+          <img src="/foto/foto16.jpg" alt="Event 1" class="timeline-image" />
           <div class="timeline-content">
-            <p class="date">September maybee</p>
-            <p class="event">okee dah mulai deket hehehehe</p>
+            <p class="date">Date: 24 Maret 2024</p>
+            <p class="event">Happy Birthday to this Gorgeous Girl</p>
           </div>
         </div>
       </div>
 
       <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
-        <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
+        <img src="/foto/foto19.jpg" alt="Event 1" class="timeline-image" />
         <div class="timeline-content">
-          <p class="date">September maybee</p>
-          <p class="event">okee dah mulai deket hehehehe</p>
+          <p class="date">Date: 20 Juni 2023</p>
+          <p class="event">Main ke Malang with Da Friends</p>
         </div>
       </div>
 
-      <div class="wrapper-timeline min-sm:w-full justify-end flex" data-aos="fade-left" data-aos-delay="500">
-        <div class="timeline-item">
-          <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
-          <div class="timeline-content">
-            <p class="date">September maybee</p>
-            <p class="event">okee dah mulai deket hehehehe</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
-        <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
-        <div class="timeline-content">
-          <p class="date">September maybee</p>
-          <p class="event">okee dah mulai deket hehehehe</p>
-        </div>
-      </div>
-
-      <div class="wrapper-timeline min-sm:w-full justify-end flex" data-aos="fade-left" data-aos-delay="500">
-        <div class="timeline-item">
-          <img src="/foto/foto1.png" alt="Event 1" class="timeline-image" />
-          <div class="timeline-content">
-            <p class="date">September maybee</p>
-            <p class="event">okee dah mulai deket hehehehe</p>
-          </div>
-        </div>
-      </div>
+      
     </div>
     <br />
     <br />
@@ -486,7 +434,7 @@ export default {
       }
     },
     scrollToSection() {
-      const kontenSection = document.getElementById("konten");
+      const kontenSection = document.getElementById("swiper");
       kontenSection.scrollIntoView({ behavior: "smooth" });
     },
     // async mulai() {
